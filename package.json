@@ -1,0 +1,39 @@
+{
+  "name": "disaster-alert",
+  "version": "1.0.0",
+  "description": "Alerts subscriber about disasters on their area",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riyadomf/Disaster-Alert.git"
+  },
+  "author": "Omar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riyadomf/Disaster-Alert/issues"
+  },
+  "homepage": "https://github.com/riyadomf/Disaster-Alert#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "^1.3.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.9.1",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
+    "twilio": "^4.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
+  }
+}

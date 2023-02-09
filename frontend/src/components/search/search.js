@@ -2,12 +2,13 @@ import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL } from "../../api";
 
+// handleOnSearchChange is passed as props in Search component. It's assigned in onSearchChange variable
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=100&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())

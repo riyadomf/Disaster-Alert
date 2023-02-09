@@ -1,11 +1,15 @@
 import "./current-weather.css";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const CurrentWeather = ({ data }) => {
+  data.city = data.city.replace(", ", "-");
+  data.city = data.city.replace(/\s+/g, "-");
   return (
     <div className="weather">
       <div className="top">
         <div>
-          <p className="city">{data.city}</p>
+          <p className="city">{data?.city}</p>
           <p className="weather-description">{data.weather[0].description}</p>
         </div>
         <img
@@ -39,6 +43,14 @@ const CurrentWeather = ({ data }) => {
             <span className="parameter-value">{data.main.pressure} hPa</span>
           </div>
         </div>
+      </div>
+
+      <div className="subscribe-button">
+        <Link
+          to={`/alert-subscription?city=${data.city}&lat=${data.lat}&lon=${data.lon}`}
+        >
+          <Button className="info">Alert Subscription</Button>
+        </Link>
       </div>
     </div>
   );
